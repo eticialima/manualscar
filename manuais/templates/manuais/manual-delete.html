@@ -1,0 +1,18 @@
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Apagar manual{% endblock %}
+{% block body_title %}Apagar manual{% endblock %}
+{% block main_content %}
+    <div class="container">
+        <h2>Atenção</h2>
+        <p>
+        Todas as informações deste manual será deletada.
+        </p>
+        <form method="POST" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Sim</button>
+                <div class="btn btn-dark" onclick="history.back();">Cancelar</div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

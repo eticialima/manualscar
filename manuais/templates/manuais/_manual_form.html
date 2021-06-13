@@ -1,0 +1,30 @@
+{% load widget_tweaks %}
+<div class="form-group">
+    <h1>Adicionar Manual para o Carro: {{ nome_equipamento }}</h1>
+</div>
+<form method="post" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+        <!-- <h1>{{ nome_equipamento }}</h1>
+        <div class="form-group">
+            <label for="nome_equipamento">Categoria(s) <span style="color: red;">*</span></label>
+            <select multiple class="form-control" id="nome_equipamento" name="nome_equipamento" required>
+                {% for manuais in form.nome_equipamento %}
+                    {{ manuais }}
+                {% endfor %}
+            </select>
+        </div>
+        <br><br>  -->
+
+        {%  render_field form.nome_equipamento class="form-control" type="text" %}  
+        <br><br>
+        {% render_field form.ns_min class="form-control" type="text" placeholder="ns_min..." %}
+        <br><br>
+        {% render_field form.pdf class="form-control" type="file" %}
+        <br><br> 
+        <button type="submit" class="btn btn-primary mr-2" name="btn_adicionar">Adicionar</button>
+        <a class="btn btn-dark mr-2" role="button" href="{% url 'equipamentos' %}">Cancelar</a>  
+        {% if object.pk %}
+        <a class="btn btn-danger mr-2" href="{% url 'manual-delete' object.pk %}">Deletar</a>
+        {% endif %} 
+</form> 
