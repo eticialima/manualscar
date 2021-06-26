@@ -1,10 +1,10 @@
-<h1>Lista de Peças para carro</h1><br>
+<h3>Lista de manuais do equipamento - {{ obg_equipamento.0 }}</h3><br>
 <td class="text-center">
-<a class="btn btn-outline-dark" href="{% url 'manual-novo' %}">Novo Manual</a>
+<a class="btn btn-outline-dark" href="{% url 'manual-novo' pk %}">Adicionar Manual</a>
 </td><br><br> 
-<table class="text-center table table-bordered rounded mt-3">
-    <thead class="thead-dark">
-        <tr class="table-borderless">
+<table class="text-center table table-bordered rounded shadow-sm mt-3">
+    <thead>
+        <tr>
             <th scope="col">#</th> 
             <th scope="col">Nome Carro</th>
             <th scope="col">Ns_min</th> 
@@ -12,16 +12,16 @@
             <th scope="col">Alterar</th> 
         </tr>
     </thead>
-    {% for form in manuais_list %} 
+    {% for manual in manuais %}
     <tbody>
         <tr>
-            <th scope="row">{{ form.pk }}</td>
-            <th scope="row">{{ form.nome_equipamento}}</td>
-            <th scope="row">{{ form.ns_min }}</td>
-            <th scope="row"><a href="{{ form.pdf.url }}" target="_blank">{{ form.pdf.url }}</a></td> 
+            <th scope="row">{{ manual.pk }}</td>
+            <th scope="row">{{ manual.nome_equipamento }}</td>
+            <th scope="row">{{ manual.ns_min }}</td>
+            <th scope="row"><a href="{{ manual.pdf.url }}" target="_blank">{{ manual.pdf.url }}</a></td>
             <th>
-            {% if form.pk %}
-                <a class="btn btn-outline-primary" href="{% url 'manual-alterar' form.pk %}"><i class="fas fa-file-invoice fa-1x" style="color:#0013c2;" aria-hidden="true"></i></a>
+            {% if manual.pk %}
+                <a class="btn btn-outline-primary" href="{% url 'manual-alterar' manual.pk %}"><i class="fas fa-file-invoice fa-1x" style="color:#0013c2;" aria-hidden="true"></i></a>
             {% endif %}
             </th>
         </tr>

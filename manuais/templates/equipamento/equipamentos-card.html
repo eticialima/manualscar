@@ -1,16 +1,23 @@
-<h1>ListView Carros</h1><br>
+<h1>Sistema XYZ - Equipamentos</h1><br>
 <td class="text-center">
-    <a class="btn btn-outline-dark mr-2" href="{% url 'equipoamento-novo' %}">Novo Carro</a>
-</td><br><br>
+    <a class="btn btn-outline-dark mr-2" href="{% url 'equipoamento-novo' %}">Adicionar Novo Equipamento</a>
+</td> 
+{% if messages %}
+{% for message in messages %}
+<div class="alert {{ message.tags }}" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
 <hr><br>
-<table class="text-center table table-bordered rounded mt-3">
-    <thead class="thead-dark">
-        <tr class="table-borderless">
+<table class="text-center table table-bordered rounded shadow-sm mt-3">
+    <thead>
+        <tr>
             <th scope="col">#</th>
-            <th scope="col">Nome Carro</th>
-            <th scope="col">Nome Display modelo</th>
-            <th scope="col">ID_SECTRA_CARRO</th>
-            <th scope="col">Manuais do Carro</th>
+            <th scope="col">Nome Equipamento</th>
+            <th scope="col">Nome Modelo</th>
+            <th scope="col">ID_SECTRA</th>
+            <th scope="col">Manuais</th>
             <th scope="col">Alterar</th>
         </tr>
     </thead>

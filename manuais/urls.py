@@ -17,7 +17,7 @@ urlpatterns = [
 
 	path('', ManuaisIndexView.as_view(), name='index-manuais'),
 	path('equipamentos/<int:pk>/', ManuaisListView.as_view(), name='manuais'), 
-	path('manual-novo/', ManuaisNewView.as_view(), name='manual-novo'), 
+	path('<str:pk>/manual-novo/', ManuaisNewView.as_view(), name='manual-novo'),
 	path('alterar/<int:pk>/', ManuaisUpdateView.as_view(), name='manual-alterar'),
 	path('delete/<int:pk>', ManuaisDeleteView.as_view(), name='manual-delete'),  
 ]
