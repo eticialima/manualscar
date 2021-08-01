@@ -3,15 +3,17 @@
 {% block body_title %}Apagar manual{% endblock %}
 {% block main_content %}
     <div class="container">
-        <h2>Atenção</h2>
+        <h2>Aviso</h2>
         <p>
-        Todas as informações deste manual será deletada.
+        Tem a certeza que deseja eliminar este manual relacionado ao equipamento {{ object.nome_equipamento }} da base de dados?
+        <br>
+        Esse manual será removido completamente.
         </p>
         <form method="POST" class="form">
             {% csrf_token %}
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Sim</button>
-                <div class="btn btn-dark" onclick="history.back();">Cancelar</div>
+                <div class="btn btn-primary" onclick="history.back();">Cancelar</div>
             </div>
         </form>
     </div>

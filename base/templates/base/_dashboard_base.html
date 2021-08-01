@@ -5,10 +5,10 @@
   {% include 'base/_head.html' %}
 </head> 
 <body>
-  <div class="container-sm p-5">   
-    <div class="py-3">
-      <a class="btn btn-outline-dark mr-2" role="button" href="{% url 'equipamentos' %}">Acessar Sistema</a>   
-    </div> 
+  <div class="container mt-3">  
+      <br><br><br>  
+      <span>Menu: </span><a class="btn btn-outline-dark mr-2" role="button" href="{% url 'equipamentos' %}">Equipo</a>  
+      </td><br><br><hr><br>  
       <div class="col"> 
         {% block main_content %} 
         {% endblock %} 

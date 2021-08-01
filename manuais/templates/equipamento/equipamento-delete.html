@@ -1,16 +1,16 @@
 {% extends 'base/_dashboard_base.html' %}
-{% block title %}Deletar Equipamento{% endblock %}
-{% block body_title %}Deletar Equipamento{% endblock %}
+{% block title %}Delete Equipo{% endblock %}
+{% block body_title %}Delete Equipo{% endblock %}
 {% block main_content %}
     <div class="container">
-        <h2>Esse Equipamento: {{ object.nome_equipamento }}</h2> 
-        Todos os dados desse equipamento será deletado da base de dados.
+        <h2>this equipo: {{ object.nome_equipamento }}</h2> 
+        All records are deleted!
         </p>
         <form method="POST" class="form">
             {% csrf_token %}
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Sim</button>
-                <div class="btn btn-primary" onclick="history.back();">Cancelar</div>
+                <button type="submit" class="btn btn-primary">Yes</button>
+                <div class="btn btn-primary" onclick="history.back();">Cancel</div>
             </div>
         </form>
     </div>

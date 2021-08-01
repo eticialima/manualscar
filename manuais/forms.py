@@ -11,8 +11,4 @@ class EquipamentosForm(forms.ModelForm):
 class RevisaomanualForm(forms.ModelForm):
     class Meta:
         model = RevisaoManuais
-        # fields = '__all__'
-        fields = [
-            'ns_min',
-            'pdf'
-        ]
+        fields = '__all__'
