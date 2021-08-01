@@ -1,42 +1,36 @@
-<h1>ListView Equipo</h1><br>
+<h1>ListView Carros</h1><br>
 <td class="text-center">
-    <a class="btn btn-primary" href="{% url 'equipoamento-novo' %}">Registrar Equipo</a>
-</td><br><br><hr><br> 
-<div class="row">
-    <div class="col">
-       <div>ID</div>
-    </div>
-    <div class="col">
-      <div>Name Equipo</div>
-    </div>
-    <div class="col">
-        <div>Name Display</div>
-    </div>
-    <div class="col">
-        <div>Id equipo</div>
-    </div>
-    <div class="col-md-3">
-       <div>Actions</div>
-    </div>
-</div>
-<br><hr><br> 
-{% for objects in object_list %} 
-<div class="row">
-    <div class="col">
-        {{ objects.id }}
-    </div>
-    <div class="col">
-        {{ objects.nome_equipamento }}
-    </div>
-    <div class="col">
-        {{ objects.nome_display }}
-    </div>
-    <div class="col">
-        {{ objects.idsectra }}
-    </div>
-    <div class="col-md-3">
-        <a class="btn" href="{% url 'manuais' objects.pk %}">View</a>
-        <a class="btn" href="{% url 'equipamento-alterar' objects.pk %}">Change</a>
-    </div>
-</div>
-{% endfor %}
+    <a class="btn btn-outline-dark mr-2" href="{% url 'equipoamento-novo' %}">Novo Carro</a>
+</td><br><br>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert {{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+<hr><br>
+<table class="text-center table table-bordered rounded mt-3">
+    <thead class="thead-dark">
+        <tr class="table-borderless">
+            <th scope="col">#</th>
+            <th scope="col">Nome Carro</th>
+            <th scope="col">Nome Display modelo</th>
+            <th scope="col">ID_SECTRA_CARRO</th>
+            <th scope="col">Manuais do Carro</th>
+            <th scope="col">Alterar</th>
+        </tr>
+    </thead>
+    {% for objects in object_list %}
+    <tbody>
+        <tr>
+            <th scope="row">{{ objects.id }}</td>
+            <th scope="row">{{ objects.nome_equipamento }}</td>
+            <th scope="row">{{ objects.nome_display }}</td>
+            <th scope="row">{{ objects.idsectra }}</td>
+            <th><a class="btn" href="{% url 'manuais' objects.pk %}"><i class="fa fas fa-eye fa-1x" style="color:#c2b200;" aria-hidden="true"></i></a></td>
+            <th><a class="btn" href="{% url 'equipamento-alterar' objects.pk %}"><i class="fas fa-file-invoice fa-1x" style="color:#0013c2;" aria-hidden="true"></i></a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>

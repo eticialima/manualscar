@@ -1,37 +1,28 @@
-<!-- Equipamento Form -->
+{% load widget_tweaks %}
 <div class="form-group">
-    <h1>Add manuals this is Equipo</h1>
+    <h1>Adicionar Manual para o Carro: {{ carro.0.1 }}</h1>
 </div>
 <form method="post" autocomplete="off" enctype="multipart/form-data">
-    {% csrf_token %} 
-    {% include 'partials/form.html' %}
-    {% comment %} <div class="form-group"> 
-        <label for="id_nome_equipamento">Equipo<span style="color: red;">*</span></label>
-        <select class="form-control" id="id_nome_equipamento" name="equipamento" required>
-            {% for equipamentos in form.nome_equipamento %}
-            {{ equipamentos }}
-            {% endfor %}
-        </select>
-    </div> 
-    <div class="form-group">
-        <label for="id_ns_min">ns_min<span style="color: red;">*</span></label>
-        <input type="text" class="form-control" id="id_ns_min" name="ns_min" required
-        > 
-    </div>
-
-    <div class="form-group">
-        <label for="id_pdf">Files PDF Manuals<span style="color: red;">*</span></label>
-        <input type="file" class="input-group-text" id="id_pdf" name="pdf" required >
-    </div> {% endcomment %}
+    {% csrf_token %}
     
-     <div class="form-group">
-        <button type="submit" class="btn btn-secondary mr-2">Adicionar</button> 
-        <a class="btn btn-secondary mr-2" role="button" href="{% url 'equipamentos' %}">Cancel</a> 
-    </div> 
-
-     <div class="form-group">
+        <!-- <h1>{{ nome_equipamento }}</h1>
+        <div class="form-group">
+            <label for="nome_equipamento">Categoria(s) <span style="color: red;">*</span></label>
+            <select multiple class="form-control" id="nome_equipamento" name="nome_equipamento" required>
+                {% for manuais in form.nome_equipamento %}
+                    {{ manuais }}
+                {% endfor %}
+            </select>
+        </div>
+        <br><br>  -->
+        <br><br>
+        {% render_field form.ns_min class="form-control" type="text" placeholder="ns_min..." %}
+        <br><br>
+        {% render_field form.pdf class="form-control" type="file" %}
+        <br><br> 
+        <button type="submit" class="btn btn-primary mr-2" name="btn_adicionar">Adicionar</button>
+        <a class="btn btn-dark mr-2" role="button" href="{% url 'equipamentos' %}">Cancelar</a>  
         {% if object.pk %}
-        <a class="btn btn-outline-dark mr-2" href="{% url 'manual-delete' object.pk %}">Delete</a>
-        {% endif %}
-    </div>
-</form>
+        <a class="btn btn-danger mr-2" href="{% url 'manual-delete' object.pk %}">Deletar</a>
+        {% endif %} 
+</form> 
