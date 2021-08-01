@@ -1,10 +1,5 @@
-# Django_Crud_Fields 
+# django_projeto_equipament_teste 
  
-### Previa
- 
-<img src="git/demo1.png?raw=true"/>
-<img src="git/demo2.png?raw=true"/>
-
 ### Ferramentas
 * Django
 * HTML/CSS 
