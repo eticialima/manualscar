@@ -1,4 +1,4 @@
-# Django_Crud_Fields 
+# Django_projeto_equipament_teste
  
 ### Previa
  
