@@ -1,7 +1,6 @@
-{% load widget_tweaks %}
-<div class="form-group"> 
-    <h3>Formulario</h3><br> 
-</div>
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Manuals{% endblock %}
+{% load widget_tweaks %} 
 <form method="post" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}   
         {% render_field form.ns_min class="form-control" type="text" placeholder="ns_min..." %}
@@ -14,3 +13,4 @@
         <a class="btn btn-outline-danger shadow-lg mr-2" href="{% url 'manual-delete' object.pk %}">Deletar</a>
         {% endif %} 
 </form> 
+{% endblock %}

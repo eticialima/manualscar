@@ -7,13 +7,9 @@ from manuais.forms import EquipamentosForm, RevisaomanualForm
 from manuais.models import Equipamentos, RevisaoManuais
 
 
-# --- equipamentos views --- #
-class EquipamentosIndexView(TemplateView):
-	template_name = 'equipamento/index-equipamentos.html'
-
-
+# --- equipamentos views --- # 
 class EquipamentosNewView(CreateView):
-	template_name = 'equipamento/equipamento-novo.html'
+	template_name = 'equipamento/_equipamento_form.html'
 	form_class = EquipamentosForm
 	success_url = reverse_lazy('equipamentos')
 	success_message = 'Equipamento Cadastrado com sucesso'
@@ -29,7 +25,7 @@ class EquipamentosDeleteView(DeleteView):
 class EquipamentosUpdateView(UpdateView):
 	model = Equipamentos
 	form_class = EquipamentosForm
-	template_name = 'equipamento/equipamento-alterar.html'
+	template_name = 'equipamento/_equipamento_form.html'
 	success_url = reverse_lazy('equipamentos')
 	success_message = 'As alterações foram efectuadas com sucesso'
 
@@ -39,11 +35,7 @@ class EquipamentosListView(ListView):
 	template_name = 'equipamento/equipamentos.html'
 
 
-# --- manuais views --- #
-class ManuaisIndexView(TemplateView):
-	template_name = 'manuais/index-manuais.html'
-
-
+# --- manuais views --- #  
 class ManuaisNewView(CreateView):
 	template_name = 'manuais/manual-novo.html'
 	form_class = RevisaomanualForm
@@ -56,7 +48,7 @@ class ManuaisNewView(CreateView):
 			'form': form,
 			'equipamento': equipamento
 		}
-		return render(request, 'manuais/manual-novo.html', context)
+		return render(request, 'manuais/_manual_form.html', context)
 
 	def post(self, request, *args, **kwargs):
 		equipamento_pk = kwargs['pk']
@@ -94,7 +86,7 @@ class ManuaisDeleteView(DeleteView):
 class ManuaisUpdateView(UpdateView):
 	model = RevisaoManuais
 	form_class = RevisaomanualForm
-	template_name = 'manuais/manual-alterar.html' 
+	template_name = 'manuais/_manual_form.html' 
 
 	def get_success_url(self) -> str:
 		messages.success(self.request, 'Manual Cadastrado com sucesso')

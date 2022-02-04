@@ -1,7 +1,6 @@
-<!-- Equipamento Form -->
-<div class="form-group">
-    <h1>Registar Equipamento no sistema</h1>
-</div>
+{% extends 'base/_dashboard_base.html' %}
+{% block title %}Equipamentos{% endblock %}
+{% block main_content %}
 <form method="POST" class="form" autocomplete="off">
     {% csrf_token %}
     <div class="form-group mb-3">
@@ -26,3 +25,4 @@
         <a class="btn btn-outline-danger mr-2" href="{% url 'equipamento-delete' object.pk %}">Deletar</a>
         {% endif %} 
 </form>
+{% endblock %}

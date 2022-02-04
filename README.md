@@ -1,7 +1,7 @@
-### Previa
+### Sistema de Registro de Carro
  
-<img src="git/demo1.png?raw=true"/>
-<img src="git/demo2.png?raw=true"/>
+<img src="docs/demo1.png?raw=true"/>
+<img src="docs/demo2.png?raw=true"/>
  
 ### Obrigada ❤️
 <p>[@eticialima](https://www.instagram.com/eticialima).</p> 
